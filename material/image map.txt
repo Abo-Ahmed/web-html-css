@@ -1,0 +1,159 @@
+
+HTML Code: <img>, <map> & <area>
+
+The clickable area can be rectangles (shape="rect"), polygons (shape="poly") or circles (shape="circle").
+
+Shape-Values are coordiate-pairs. Every pair have a X and a Y value (from left/top of an image), separated with a comma. Every pair is as well separated with a comma.
+
+    Rectangle: Set four coordinates. x1,y1,x2,y2
+    Polygon: Set as many coordinates as you want (a multiple of two)
+    Circle: One coordinate-pair and second value a radius. x1,y1,radius
+
+HTML Imagemap Demo Code with x / y
+
+    <area alt="" href="#" coords="x1,y1,x2,y2" shape="rect" />
+    <area alt="" href="#" coords="x1,y1,x2,y2,x3,y3 [...] " shape="poly" />
+    <area alt="" href="#" coords="x1,y1,radius" shape="circle" />
+
+Use the <area> href-attribute to set links. It's also important to link the <img> with the <map> using usemap-attribute within the image. These value of the attribute must be the map's name-attribute.
+
+
+-------------
+<html>
+<body>
+
+<img src="sunset.jpg" usemap="#sunset">
+<map name="sunset">
+<area shape=="rec" coords="0,0,200,200" border="1" href="https://www.google.com" target="_blank">
+<area shape=="rec" coords="200,200,400,400" border="1" href="https://www.facebook.com">
+
+</map>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+HTML Links :
+IMAGE MAPPING
+	
+	
+
+	
+	
+
+	
+	
+	
+
+It is possible to make one image link to several pages, depending on where the image is clicked.
+
+This technique is called imagemapping.
+
+You simply specify which areas of the image should link to where.
+
+In the example below, if you position the mouse in the upper left corner it links to yahoo .... and in the lower right corner.... it links to hotbot.
+
+
+
+<img src="rainbow.gif" usemap = #example border=0>
+<map name=example>
+<area shape=Rect Coords=0,0,29,29 Href="http://www.yahoo.com">
+<area shape=Rect Coords=30,30,59,59 Href="http://www.hotbot.com">
+</map>
+
+
+
+In the above example we only used rectangular imagemappings. Possible shapes are:
+
+    <area shape=rect coords= x1,y1, x2,y2 Href="http://www.domain.com">
+
+
+    <area shape=circle coords= x1,y1, x2,y2 Href="http://www.domain.com">
+
+
+    <area shape=polygon coords= x1,y1, x2,y2, .., xn,yn Href="http://www.domain.com">
+
+
+There are excellent tools out there to help you create imagemaps. No one calculates the coordinates by hand.
+
+If you want to use imagemaps on your site you will need to get a program that will allow you to simply drag the mouse over the areas you want to work as links.
+
+Most HTML editors have this as a built-in function.
+
+If you do not use an HTML editor, you can still get programs that will do this boring job for you - best thing is - you can get it for free!
+
+Below are links to websites that will help you create your imagemaps on the fly.
+
+Just make sure that the image is uploaded to the web before using these tools.
+
+
+
+
+
+
+Client Side Image Maps
+
+Element: <map>
+Start tag: required
+End tag: required
+Attributes: name. more attribute info here
+
+ 
+
+Element: <area>
+Start tag: required
+End tag: forbidden
+Attributes: id, class, lang, dir,
+  title, style, name, alt, href,
+  target, tabindex, accesskey, shape,
+  onclick, ondblclick, onmousedown,
+  onmouseup, onmouseover,
+  onmousemove, onmouseout, onkeypress,
+  onkeydown, onkeyup, onfocus,
+  onblur, more attribute info here
+
+Image maps allow you to map off areas of a single image and assign a link to each area. The three area shapes are rect for a rectangle, circle for a circle, and polygon for a polygon (areas with odd shapes).
+
+In an image map the tag <area> is within the tags <map> and </map>. You need to use the attribute name in the <map> tag to identify the map. The attributes of <area> are: shape, coords, href, and alt. shape is used to specify what shape your area is going to be by setting it to either: rect, circle, or poly. coords is used to input the X,Y coordinates of the area. href is used to specify the URL to load when the area is clicked. alt is used to specify the alternate text for the area. You also need to make your image tag as usual and add the attribute usemap="#mapName".
+
+<img src="image.gif" width="130" height="110" alt="someText" usemap="#mapName">
+
+<map name="mapName">
+<area shape="rect" coords="x1, y1, x2, y2" href="page.html" alt="Alternate Text Here">
+</map>
+How to find the Coordinates
+
+There are two ways to find the X,Y coordinates in an image. The first is to use a graphics program by moving your mouse over the place on the image and looking somewhere for a set of numbers that change as you move the mouse. The second way is to use your browser. Make your image a link, and then add the attribute ISMAP to your image tag. Load the page with this markup into your browser, and get the X,Y by looking at the set of numbers in the status bar.
+
+<a href="">
+<img src="image.gif" width="130" height="110" alt="someText" ISMAP>
+</a>
+Rectangle (rect)
+
+To make a rectangular area find the coordinates of the top left corner of the area, and then the bottom right corner. Put the coordinates in the coords attribute separated by comma's.
+
+<map name="rect">
+<area shape="rect" coords="x1, y1, x2, y2" href="page.html" alt="Alternate Text Here">
+</map>
+Circle
+
+To make a circular area find the coordinates of the center of the area, and then the left center. Put the first coordinates in as normal, and subtract the first number from the second set of coordinates from the first number of the first set of coordinates. That makes your third variable and the radius of the circle.
+
+<map name="circle">
+<area shape="circle" coords="x, y, r" href="page.html" alt="Alternate Text Here=">
+</map>
+Polygon
+
+Polygons are almost the same as the rectangle, except you can have as many coordinates as you wish and the area can have any shape. Simply put all the coordinates in and you are done.
+
+<map name="poly">
+<area shape="poly" coords="x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7" href="page.html" alt="Alternate Text Here">
+</map>
+
