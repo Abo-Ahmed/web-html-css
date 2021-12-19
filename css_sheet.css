@@ -2,6 +2,57 @@
 /* css comments*/
 /* This is a single-line comment */
 
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*dimenstions*/
+/*xs = extra small screens (mobile phones)*/
+/*sm = small screens (tablets)*/
+/*md = medium screens (some desktops)*/
+/*lg = large screens (remaining desktops)*/
+
+
+/*There are four different combinators in CSS:
+descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~)
+*/
+
+/*col-xs-12*/
+/*the numbers (1-12) represent a portion of the total width of any div
+all divs are divided into 12 columns
+so, col-*-6 spans 6 of 12 columns (half the width), 
+col-*-12 spans 12 of 12 columns (the entire width), etc*/
+
+/*So, if you want two equal columns to span a div, write*/
+<div class="col-xs-6">Column 1</div>
+<div class="col-xs-6">Column 2</div>
+
+/* You can also nest columns within columns, 
+(best with a .row wrapper around them) such as:*/
+<div class="col-xs-6">
+  <div class="row">
+    <div class="col-xs-4">Column 1-a</div>
+    <div class="col-xs-8">Column 1-b</div>
+  </div>
+</div>
+<div class="col-xs-6">
+  <div class="row">
+    <div class="col-xs-2">Column 2-a</div>
+    <div class="col-xs-10">Column 2-b</div>
+  </div>
+</div>
+
+/*dimenstions*/
+/*xs = extra small screens (mobile phones)*/
+/*sm = small screens (tablets)*/
+/*md = medium screens (some desktops)*/
+/*lg = large screens (remaining desktops)*/
+
+
 /* css coloar */
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
