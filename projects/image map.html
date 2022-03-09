@@ -1,0 +1,48 @@
+
+<!-- The clickable area can be rectangles (shape="rect"), 
+polygons (shape="poly") or circles (shape="circle"). -->
+
+<!-- Shape-Values are coordiate-pairs. Every pair have a X and a Y value (from left/top of an image), 
+separated with a comma. Every pair is as well separated with a comma. -->
+
+<!-- Rectangle: Set four coordinates. x1,y1,x2,y2 -->
+<!-- Polygon: Set as many coordinates as you want (a multiple of two) -->
+<!-- Circle: One coordinate-pair and second value a radius. x1,y1,radius -->
+
+<html>
+
+<body>
+
+    <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+
+    <map name="workmap">
+        <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+        <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+        <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+    </map>
+</body>
+
+</html>
+
+
+
+<!-- To make a rectangular area find the coordinates of the top left corner of the area, and then the bottom right corner. Put the coordinates in the coords attribute separated by comma's. -->
+
+<map name="rect">
+    <area shape="rect" coords="x1, y1, x2, y2" href="page.html" alt="Alternate Text Here">
+</map>
+Circle
+
+<!-- To make a circular area find the coordinates of the center of the area, and then the left center. Put the first coordinates in as normal, and subtract the first number from the second set of coordinates from the first number of the first set of coordinates. That makes your third variable and the radius of the circle. -->
+
+<map name="circle">
+    <area shape="circle" coords="x, y, r" href="page.html" alt="Alternate Text Here=">
+</map>
+Polygon
+
+<!-- Polygons are almost the same as the rectangle, except you can have as many coordinates as you wish and the area can have any shape. Simply put all the coordinates in and you are done. -->
+
+<map name="poly">
+    <area shape="poly" coords="x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7" href="page.html"
+        alt="Alternate Text Here">
+</map>
