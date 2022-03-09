@@ -9,6 +9,15 @@ the browser about what document type to expect. -->
 
 <head>
     <title>Document name goes here</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* add css code here */
+    </style>
+    <script>
+        // add javascript code here
+    </script>
+    <script src="javascript.js"></script>
 </head>
 
 <body>
@@ -78,6 +87,15 @@ the browser about what document type to expect. -->
 
 <!-- tables -->
 <table border="1">
+
+    <!-- thead - used to group table heads cells -->
+    <!-- tbody - used to group table body cells -->
+    <!-- tfoot - used to group table foot cells -->
+
+    <!-- to add caption to table -->
+    <caption>
+        <!-- add table description here -->
+    </caption>
 
     <!-- for styling the whole column -->
     <colgroup>
@@ -149,6 +167,9 @@ the browser about what document type to expect. -->
     <label for="first">First Name:</label>
     <input type="text" name="first" id="first">
 
+    <!-- display image as submit button  -->
+    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48">
+
 </form>
 
 <!-- entities -->
@@ -192,3 +213,25 @@ the browser about what document type to expect. -->
 </body>
 
 </html>
+
+
+<!-- html 5 -->
+
+<!-- object -->
+<!-- a container for an external resource. The external resource can be a web page, -->
+<!-- a picture, a media player, or a plug-in application. --> 
+<!-- object is the current standard tag to embed something on a page -->
+<object data="pic_trulli.jpg" width="300" height="200"></object>
+<object data="snippet.html" width="500" height="200"></object>
+<object data="video.mp4" width="400" height="300"></object>
+
+
+<!-- nav -->
+<!-- The nav element defines a set of navigation links -->
+<nav>
+<a href="/html/">HTML</a> |
+<a href="/css/">CSS</a> |
+<a href="/js/">JavaScript</a> |
+<a href="/python/">Python</a>
+</nav>
+
