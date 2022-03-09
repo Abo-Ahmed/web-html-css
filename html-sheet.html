@@ -1,0 +1,194 @@
+
+<!-- All HTML documents must start with a <!DOCTYPE> declaration.
+The declaration is not an HTML tag. It is an "information" to
+the browser about what document type to expect. -->
+<!DOCTYPE html>
+
+<!-- htML Basic Document -->
+<html>
+
+<head>
+    <title>Document name goes here</title>
+</head>
+
+<body>
+    Visible text goes here
+</body>
+
+</html>
+
+<!-- heading elements -->
+<h1>Largest Heading</h1>
+<h2> . . . </h2>
+<h3> . . . </h3>
+<h4> . . . </h4>
+<h5> . . . </h5>
+<h6>Smallest Heading</h6>
+
+<!-- text elements -->
+<p dir="rtl/ltr/auto">This is a paragraph</p>
+<br /> (line break)
+<hr /> (horizontal rule)
+<pre>This text is preformatted</pre>
+
+
+<!-- text styles -->
+<em>This text is emphasized</em>
+<strong>This text is strong</strong>
+<code>This is some computer code</code>
+<b>This text is bold</b>
+<i>This text is italic</i>
+<sup>This text is superscript text </sup>
+<sub>This text is subscript text </sub>
+<ins>This text is inserted text </ins>
+<del>This text is deleted text</del>
+
+<!-- Links, anchors, and image elements -->
+<a href="http://www.example.com/">This is a Link</a>
+<a href="http://www.example.com/"><img src="URL" alt="Alternate Text"></a>
+<a href="mailto:webmaster@example.com">Send e-mail</a>
+
+<!-- link target window -->
+<a href="http://www.example.com/" target="_blank/_self/_parent/_top/{{framename}}">This is a Link</a>
+
+
+<!-- A named anchor: -->
+<a name="tips">Useful Tips Section</a>
+<a href="#tips">Jump to the Useful Tips Section</a>
+
+<!-- unordered (Bulleted) List -->
+<ul type="disc/circle/square">
+    <li>First item</li>
+    <li>Next item</li>
+</ul>
+
+<!-- Ordered (Numbered) List -->
+<ol type="A/a/i/I/1">
+    <li>First item</li>
+    <li>Next item</li>
+</ol>Learn htML and Css with w3schools
+
+<!-- Defnition List -->
+<dl>
+    <dt>First term</dt>
+    <dd>Defnition</dd>
+    <dt>Next term</dt>
+    <dd>Defnition</dd>
+</dl>
+
+<!-- tables -->
+<table border="1">
+
+    <!-- for styling the whole column -->
+    <colgroup>
+        <col span="2" style="background-color:red">
+        <col style="background-color:yellow">
+    </colgroup>
+
+    <tr>
+        <th>someheader</th>
+        <th>someheader</th>
+    </tr>
+    <tr>
+        <td>sometext</td>
+        <td>sometext</td>
+    </tr>
+</table>
+
+<!-- for vertical merging cells -->
+<!-- rowspan="2" no of merged cells -->
+<th rowspan="2">Telephone:</th>
+
+<!-- for horizontal merging cells -->
+<!-- colspan="2" no of merged cells -->
+<th colspan="2">Telephone</th>
+
+<!-- Frames -->
+<frameset cols="25%,75%">
+    <frame src="page1.htm">
+        <frame src="page2.htm">
+</frameset>
+
+<!--Forms -->
+<form action="http://www.example.com/test.asp" method="post/get">
+    <input type="text" name="lastname" value="Nixon" size="30" maxlength="50">
+    <input type="password">
+    <input type="checkbox" checked="checked">
+    <input type="radio" checked="checked">
+    <input type="submit">
+    <input type="reset">
+    <input type="hidden">
+    <select>
+        <option>Apples
+        <option selected="selected">Apples</option>
+        <option selected>Bananas
+        <option selected="selected">Bananas</option>
+        <option>Cherries
+        <option>Cherries</option>
+    </select>
+    <textarea name="Comment" rows="60" cols="20"></textarea>
+    <select name="cars" id="cars">
+        <optgroup label="Swedish Cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+        </optgroup>
+        <optgroup label="German Cars">
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </optgroup>
+    </select>
+
+    <fieldset>
+        <legend>
+            Health information:
+        </legend>
+        <!-- elements inside this field set go here  -->
+    </fieldset>
+
+    <!-- label --> for -->
+    <label for="first">First Name:</label>
+    <input type="text" name="first" id="first">
+
+</form>
+
+<!-- entities -->
+<!-- &lt; is the same as < &gt; is the same as> -->
+<!-- &#169; is the same as © -->
+
+<!-- This is a comment -->
+<blockquote>
+    Text quoted from some source.
+</blockquote>
+<address>
+    Address 1<br>
+    Address 2<br>
+    City<br>
+</address>
+
+<!-- responsive web pages -->
+<!-- To create a responsive website, add the following <meta> tag to all your web pages: -->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <h2>Show Different Images Depending on Browser Width</h2>
+    <p>Resize the browser width and the image will change at 600px and 1500px.</p>
+
+    <!-- responsive image -->
+    <picture>
+        <source srcset="paper-1.jpg" media="(max-width: 800px)">
+        <source srcset="paper-2.jpg" media="(max-width: 1000px)">
+        <source srcset="paper-3.jpg">
+        <img src="paper-2.jpg" alt="paper" style="width:50%;height:50%">
+    </picture>
+
+    <!-- responsive text field -->
+    <h1 style="font-size:10vw;">Responsive Text</h1>
+
+</body>
+
+</html>
