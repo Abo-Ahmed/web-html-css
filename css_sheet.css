@@ -1,87 +1,41 @@
 
-/*free icons website*/
-/*https://www.svgrepo.com/*/
-
 /* css comments*/
-/* This is a single-line comment */
 
-/* everywhere else */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/*dimenstions*/
-/*xs = extra small screens (mobile phones)*/
-/*sm = small screens (tablets)*/
-/*md = medium screens (some desktops)*/
-/*lg = large screens (remaining desktops)*/
-
-
-/*There are four different combinators in CSS:
-descendant selector (space)
-child selector (>)
-adjacent sibling selector (+)
-general sibling selector (~)
-*/
-
-/*col-xs-12*/
-/*the numbers (1-12) represent a portion of the total width of any div
-all divs are divided into 12 columns
-so, col-*-6 spans 6 of 12 columns (half the width), 
-col-*-12 spans 12 of 12 columns (the entire width), etc*/
-
-/*So, if you want two equal columns to span a div, write*/
-<div class="col-xs-6">Column 1</div>
-<div class="col-xs-6">Column 2</div>
-
-/* You can also nest columns within columns, 
-(best with a .row wrapper around them) such as:*/
-<div class="col-xs-6">
-  <div class="row">
-    <div class="col-xs-4">Column 1-a</div>
-    <div class="col-xs-8">Column 1-b</div>
-  </div>
-</div>
-<div class="col-xs-6">
-  <div class="row">
-    <div class="col-xs-2">Column 2-a</div>
-    <div class="col-xs-10">Column 2-b</div>
-  </div>
-</div>
-
-/*dimenstions*/
-/*xs = extra small screens (mobile phones)*/
-/*sm = small screens (tablets)*/
-/*md = medium screens (some desktops)*/
-/*lg = large screens (remaining desktops)*/
-
-
-/* css coloar */
+/* css colors */
 <h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:#ff6347;">...</h1>
 <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
-<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
-<h1 style="background-color:DodgerBlue;">Hello World</h1>
-<p style="background-color:Tomato;">Lorem ipsum...</p>
+<h1 style="background-color:red;">Hello World</h1>
 
+/* opacity */
+img {
+  opacity: 0.5;
+  }
+
+/* gradient */
+#grad {
+  background-image: linear-gradient(to right, red , yellow);
+  }
+
+/*------------------------------------*/
 /* background */
 /* basic method */
 body {
-	background-color: #ffffff;
-	background-image: url("img_tree.png");
-	background-repeat: no-repeat;
-	background-position: right top;
+  background-color: #ffffff;
+  background-image: url("img_tree.png") /* can take:  gradients or none */;
+  background-repeat: no-repeat;
+  background-position: right top;
   }
 /* shorthand method */
 body {
-	background: #ffffff url("img_tree.png") no-repeat right top;
+  background: #ffffff url("img_tree.png") no-repeat right top;
   }
 
-/* image values */
-background-image: url gradients none
 
-/* border - has this styles*/
+/*------------------------------------*/
+/*borders*/
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
 p.solid {border-style: solid;}
@@ -94,117 +48,62 @@ p.none {border-style: none;}
 p.hidden {border-style: hidden;}
 p.mix {border-style: dotted dashed solid double;}
 
+/*border-width values*/
 border-width: thin | medium | thick | length
 
 /* we can change each side of a border */
 p {
-	border-top-style: dotted;
-	border-right-style: solid;
-	border-bottom-style: dotted;
-	border-left-style: solid;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
   }
 
-/* or */
-/* Four values */
+/*shortened method*/
 p {
-	border-style: dotted solid double dashed;
-  }
-  
-  /* Three values */
-  p {
-	border-style: dotted solid double;
-  }
-  
-  /* Two values */
-  p {
-	border-style: dotted solid;
-  }
-  
-  /* One value */
-  p {
-	border-style: dotted;
+  border-style: dotted solid double dashed;
   }
 
+/* rounded border */
+border-radius: 5px;
 
-  /* to get rounded border */
-  border-radius: 5px;
-
-
-/* width and height values */
-/* auto - This is default. The browser calculates the height and width */
-/* length - Defines the height/width in px, cm etc. */
-/* % - Defines the height/width in percent of the containing block */
-/* initial - Sets the height/width to its default value */
-/* inherit - The height/width will be inherited from its parent value */
-
+/*------------------------------------*/
 /* text */
-/* text-align: start | end | left | right | center | justify */
-/* float: left | right | none */
+text-align: start | end | left | right | center | justify 
+float: left | right | none 
 text-shadow: 2px 2px 5px red;
-direction
-ltr | rtl | inherit
+text-transform: uppercase | lowercase | capitalize
+text-shadow: 2px 2px #FF0000;
+direction: ltr | rtl | inherit
 
+/*------------------------------------*/
 /* font */
-/* font-style: normal | italic | oblique | inherit */
-/* font-size: xx-small | x-small | small | medium | large | x-large | xxlarge | smaller | larger | inherit length % */
-/* font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | inherit */
-/* font shorthand */
-p.a {
-	font: 20px Arial, sans-serif;
-  }
-  
-  p.b {
-	font: italic small-caps bold 12px/30px Georgia, serif;
-  }
+font-style: normal | italic | oblique | inherit 
+font-size: xx-small | x-small | small | medium | large | x-large | xxlarge | smaller | larger | inherit length % 
+font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | inherit 
 
-/* google icons */
-<!DOCTYPE html>
-<html>
-<head>
-<title>Google Icons</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
+/* shortened method */
+p.a {    font: 20px Arial, sans-serif;    }
 
-<p>Some Google icons:</p>
-<i class="material-icons">cloud</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">attachment</i>
-<i class="material-icons">computer</i>
-<i class="material-icons">traffic</i>
-<br><br>
-
-<p>Styled Google icons (size and color):</p>
-<i class="material-icons" style="font-size:24px;">cloud</i>
-<i class="material-icons" style="font-size:36px;">cloud</i>
-<i class="material-icons" style="font-size:48px;color:red;">cloud</i>
-<i class="material-icons" style="font-size:60px;color:lightblue;">cloud</i>
-
-</body>
-</html>
-
+/*------------------------------------*/
 /* links */
 /* unvisited link */
-a:link {
-	color: red;
-  }
+a:link { color: red; }
   
-  /* visited link */
-  a:visited {
-	color: green;
-  }
+/* visited link */
+a:visited {  color: green;  }
   
-  /* mouse over link */
-  a:hover {
-	color: hotpink;
-  }
+/* mouse over link */
+a:hover {  color: hotpink;  }
   
-  /* selected link */
-  a:active {
-	color: blue;
-  }
+/* selected link */
+a:active {  color: blue;  }
 
+/*------------------------------------*/
+/* list */
+list-style-type: none | asterisks | box | check | circle | diamond | disc | hyphen | square | decimal | decimalleading-zero | lower-roman | upper-roman | lower-alpha | upper-alpha | lower-greek | lower-latin | upper-latin | hebrew | armenian | georgian | cjk-ideographic | hiragana | katakana | hiragana-iroha | katakana-iroha | footnotes
+
+/*------------------------------------*/
 /* cursor styling */
 <span style="cursor: auto">auto</span><br>
 <span style="cursor: crosshair">crosshair</span><br>
@@ -224,30 +123,89 @@ a:link {
 <span style="cursor: w-resize">w-resize</span><br>
 <span style="cursor: wait">wait</span>
 
-/* list */
-list-style-type: none | asterisks | box | check | circle | diamond | disc | hyphen | square | decimal | decimalleading-zero | lower-roman | upper-roman | lower-alpha | upper-alpha | lower-greek | lower-latin | upper-latin | hebrew | armenian | georgian | cjk-ideographic | hiragana | katakana | hiragana-iroha | katakana-iroha | footnotes
-
+/*------------------------------------*/
 /* table */
 /* Add a container element (like <div>) with overflow-x:auto 
 around the <table> element to make it responsive: */
 <div style="overflow-x:auto;">
 
 <table>
-... table content ...
+/*... table content ...*/
 </table>
 
 </div>
 
+/*Specifies whether or not table borders should be collapsed*/
 border-collapse: collapse | separate
+
+/*Specifies whether or not to display borders and background on empty cells in a table*/
 empty-cells: show | hide
+
+/*Specifies the distance between the borders of adjacent cells*/
 border-spacing: length length
+
+/*Sets the layout algorithm to be used for a table*/
 table-layout: auto | fixed
+
+/*Specifies the placement of a table caption*/
 caption-side: top | bottom | left | right
 
+/*------------------------------------*/
 /* display */
 display: none | inline | block | inline-block | flex | inline-flex | grid | inline-grid | contents | list-item |run-in | compact | table | inline-table | table-row-group | table-header-group |
 
-/* In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position. */
+display: none; 
+/*is commonly used to hide elements without 
+deleting and recreating them.*/
+
+visibility:hidden; 
+/*also hides an element. However, 
+the element will still take up the same space as before. 
+The element will be hidden, but still affect the layout:*/
+
+/*------------------------------------*/
+/* variables */
+/* global variables defined into :root selector */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  }
+  
+body { background-color: var(--blue); }
+h2 { border-bottom: 2px solid var(--blue); }
+
+/* local variable */
+button {
+  --wow: #0000ff;
+  background-color: var(--wow);
+  padding: 5px;
+  }
+
+/* calculate function in css */
+width: calc(100% - 100px);
+
+/* change vaiable with javascript */
+<script>
+
+/*Get the root element*/
+var r = document.querySelector(':root');
+
+/* Get the styles (properties and values) for the root*/
+var rs = getComputedStyle(r);
+
+/* Getting css variable value*/
+rs.getPropertyValue('--blue')
+
+/* Setting css variable value */
+r.style.setProperty('--blue', 'lightblue');
+
+</script>
+
+
+/*------------------------------------*/
+/*styling examples*/
+/* the sticky element sticks to the top 
+of the page (top: 0), when you reach its scroll position. */
 div.sticky {
 	position: sticky;
 	top: 0;
@@ -255,539 +213,11 @@ div.sticky {
 	border: 2px solid #4CAF50;
   }
 
-/* opacity */
-img {
-	opacity: 0.5;
-  }
-
-/* navigation bar */
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
-	position: fixed;
-	top: 0;
-	width: 100%;
-  }
-  
-  li {
-	float: left;
-  }
-  
-  li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-  }
-  
-  li a:hover:not(.active) {
-	background-color: #111;
-  }
-  
-  .active {
-	background-color: #04AA6D;
-  }
-
-/* drop down list*/
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-</style>
-</head>
-<body>
-
-<h2>Dropdown Menu</h2>
-<p>Move the mouse over the button to open the dropdown menu.</p>
-
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
-  </div>
-</div>
-
-<p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
-
-</body>
-</html>
-
-/* image gallery */
-<html>
-<head>
-<style>
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
-</head>
-<body>
-
-<div class="gallery">
-  <a target="_blank" href="img_5terre.jpg">
-    <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="img_forest.jpg">
-    <img src="img_forest.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="img_lights.jpg">
-    <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="img_mountains.jpg">
-    <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-</body>
-</html>
-
-/* input form */
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
-</head>
-<body>
-
-<h2>Responsive Form</h2>
-<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
-
-<div class="container">
-  <form action="/action_page.php">
-  <div class="row">
-    <div class="col-25">
-      <label for="fname">First Name</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="lname">Last Name</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="country">Country</label>
-    </div>
-    <div class="col-75">
-      <select id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
-      </select>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="subject">Subject</label>
-    </div>
-    <div class="col-75">
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <input type="submit" value="Submit">
-  </div>
-  </form>
-</div>
-
-</body>
-</html>
-
-/* sample responsive website */
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: #f1f1f1;
-}
-
-/* Header/Blog Title */
-.header {
-  padding: 30px;
-  text-align: center;
-  background: white;
-}
-
-.header h1 {
-  font-size: 50px;
-}
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 75%;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 25%;
-  background-color: #f1f1f1;
-  padding-left: 20px;
-}
-
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-  margin-top: 20px;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
-</style>
-</head>
-<body>
-
-<div class="header">
-  <h1>My Website</h1>
-  <p>Resize the browser window to see the effect.</p>
-</div>
-
-<div class="topnav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#" style="float:right">Link</a>
-</div>
-
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-    <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-    <div class="card">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  <h2>Footer</h2>
-</div>
-
-</body>
-</html>
-
-/* important */
-p {
-	background-color: red !important;
-  }
-
-
-/* gradient */
-#grad {
-	background-image: linear-gradient(to right, red , yellow);
-  }
-
-/* button styling */
-.button {
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-  }
 
 /* button shadow on hover */
 .button2:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
-
-
-/* variables */
-:root {
-	--blue: #1e90ff;
-	--white: #ffffff;
-  }
-  
-  body { background-color: var(--blue); }
-  
-  h2 { border-bottom: 2px solid var(--blue); }
-  
-  .container {
-	color: var(--blue);
-	background-color: var(--white);
-	padding: 15px;
-  }
-  
-  button {
-	background-color: var(--white);
-	color: var(--blue);
-	border: 1px solid var(--blue);
-	padding: 5px;
-  }
-
-/* overriding global variable */
-button {
-	--blue: #0000ff;
-	background-color: var(--white);
-	color: var(--blue);
-	border: 1px solid var(--blue);
-	padding: 5px;
-  }
-
-/* change vaiable with javascript */
-<script>
-// Get the root element
-var r = document.querySelector(':root');
-
-// Create a function for getting a variable value
-function myFunction_get() {
-  // Get the styles (properties and values) for the root
-  var rs = getComputedStyle(r);
-  // Alert the value of the --blue variable
-  alert("The value of --blue is: " + rs.getPropertyValue('--blue'));
-}
-
-// Create a function for setting a variable value
-function myFunction_set() {
-  // Set the value of variable --blue to another value (in this case "lightblue")
-  r.style.setProperty('--blue', 'lightblue');
-}
-</script>
-
 
 /* add styling depending on screen size */
 @media screen and (min-width: 480px) {
@@ -796,152 +226,56 @@ function myFunction_set() {
 	}
   }
 
+/*------------------------------------*/
+/* icons */
+/*free icons website:  https://www.svgrepo.com/ */
 
-/* full responsive media website */
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+/*free icons: https://fontawesome.com/ */
+/* add this to start of website */
+<script src="https://kit.fontawesome.com/b760a80f7e.js" crossorigin="anonymous"></script>
 
-/* Style the body */
-body {
-  font-family: Arial;
-  margin: 0;
-}
+/*------------------------------------*/
+/*dimenstions*/
+/*Absolute Measurement*/
+% = percentage
+cm = centimeter
+in = inch
+mm = milimeter
+pc = pica (1p = 12 points)
+pt = int (1pt = 1/72 inch)
+px = pixel (1px = 1/96 inch)
 
-/* Header/logo Title */
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-}
+/*Relative Measurement*/
+ch = width of the “0” glyph found in the font for the font size used to render
+em = 1em = current font size of current element
+ex = x-height of the element’s font
+gd = the grid defined by ‘layout-grid’
+rem = the font size of the root element
+vh = the viewport’s height
+vw = the viewport's width
+vm = viewport’s height or width, whichever is smaller of the two
 
-/* Style the top navigation bar */
-.navbar {
-  display: flex;
-  background-color: #333;
-}
+/* width and height values */
+/* auto - This is default. The browser calculates the height and width */
+/* length - Defines the height/width in px, cm etc. */
+/* % - Defines the height/width in percent of the containing block */
+/* initial - Sets the height/width to its default value */
+/* inherit - The height/width will be inherited from its parent value */
 
-/* Style the navigation bar links */
-.navbar a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  text-align: center;
-}
+/*------------------------------------*/
+/*grid styling in bootstrap*/
+/* xs = extra small screens (mobile phones)*/
+/* sm = small screens (tablets)*/
+/* md = medium screens (some desktops)*/
+/* lg = large screens (remaining desktops)*/
 
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Column container */
-.row {  
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* Main column */
-.main {
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row, .navbar {   
-    flex-direction: column;
-  }
-}
-</style>
-</head>
-<body>
-
-<!-- Note -->
-<div style="background:yellow;padding:5px">
-  <h4 style="text-align:center">Resize the browser window to see the responsive effect.</h4>
-</div>
-
-<!-- Header -->
-<div class="header">
-  <h1>My Website</h1>
-  <p>With a <b>flexible</b> layout.</p>
-</div>
-
-<!-- Navigation Bar -->
-<div class="navbar">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-</div>
-
-<!-- The flexible grid (content) -->
+/*col-xs-12*/
+/*the numbers (1-12) represent a portion of the total width of any div
+all divs are divided into 12 columns
+so, col-*-6 spans 6 of 12 columns (half the width), 
+col-*-12 spans 12 of 12 columns (the entire width),
+if you want two equal columns to span a div, write*/
 <div class="row">
-  <div class="side">
-    <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div>
-  </div>
-  <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-  </div>
+  <div class="col-xs-6">Column 1-a</div>
+  <div class="col-xs-6">Column 1-b</div>
 </div>
-
-<!-- Footer -->
-<div class="footer">
-  <h2>Footer</h2>
-</div>
-
-</body>
-</html>
-
-/* calculate function in css */
-width: calc(100% - 100px);
