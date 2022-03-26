@@ -232,7 +232,7 @@ div.sticky {
 
 /*free icons: https://fontawesome.com/ */
 /* add this to start of website */
-<script src="https://kit.fontawesome.com/b760a80f7e.js" crossorigin="anonymous"></script>
+/* <script src="https://kit.fontawesome.com/b760a80f7e.js" crossorigin="anonymous"></script> */
 
 /*------------------------------------*/
 /* The position Property */
@@ -313,3 +313,64 @@ if you want two equal columns to span a div, write*/
   <div class="col-xs-6">Column 1-a</div>
   <div class="col-xs-6">Column 1-b</div>
 </div>
+
+
+/*------------------------------------*/
+/* css layouts */
+/* - Block, for sections in a webpage
+- Inline, for text 
+- Table, for two-dimensional table data 
+- Positioned, for explicit position of an element 
+- flexbox layout   */
+
+/* flexbox layout */
+/* container becomes flexible by setting the display property to flex */
+
+/* flex-direction --> defines in which direction the container wants to stack the flex items. */
+flex-direction: column; /* stacks items vertically (from top to bottom) */
+flex-direction: column-reverse; /* stacks items vertically (from bottom to top) */
+flex-direction: row; /* stacks items horizontally (from left to right) */
+flex-direction: row-reverse; /* stacks items horizontally (from right to left) */
+
+/* flex-wrap --> specifies whether the flex items should wrap or not. */
+flex-wrap: wrap;
+flex-wrap: nowrap;
+flex-wrap: wrap-reverse; /* warp in reverse order */
+
+/* flex-flow --> shorthand property for setting both the flex-direction and flex-wrap properties. */
+flex-flow: row wrap;
+
+/* justify-content --> used to align the flex items: */
+justify-content: center;  /* center of the container */
+justify-content: flex-start; /* default - beginning of the container */
+justify-content: flex-end; /* default - end of the container */
+justify-content: space-around; /* displays the flex items with space before, between, and after the lines */
+justify-content: space-between; /* displays the flex items with space between the lines */
+
+
+/* align-items --> is used to align the flex items. */
+align-items: center; /* aligns the flex items in the middle of the container */
+align-items: flex-start;
+align-items: flex-end;
+align-items: stretch;
+align-items: baseline; /* ligns the flex items such as their baselines aligns */
+
+/* align-content property is used to align the flex lines. */
+align-content: space-between;
+align-content: space-around;
+align-content: stretch;
+align-content: center;
+align-content: flex-start;
+align-content: flex-end;
+
+/* justify-content and align-items are similar in their behviour, the difference being that justify-content works on the the main axis while align-items works on the cross axis. align-content works only on multi-line containers and has no effect on single line containers. */
+
+/* Perfect Centering */
+/* Set both the justify-content and align-items properties to center */
+Example
+.flex-container {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
