@@ -235,6 +235,40 @@ div.sticky {
 <script src="https://kit.fontawesome.com/b760a80f7e.js" crossorigin="anonymous"></script>
 
 /*------------------------------------*/
+/* The position Property */
+/* specifies the type of positioning method used for an element. */
+
+/* Static --> static; is not positioned in any special way; it is always positioned according to the normal flow of the page: */
+
+/* Relative --> Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element. */
+
+/* Fixed --> is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element. */
+
+/* Absolute -->  is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).	However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling. */
+
+/* Sticky -->  is positioned based on the user scroll position. A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). */
+
+/*------------------------------------*/
+/* The overflow Property */
+/* controls what happens to content that is too big to fit into an area, it specifies whether to clip the content or to add scrollbars. */
+
+/* visible - Default - the content is not clipped & renders outside element's box */
+/* hidden - The overflow is clipped, and the rest of the content will be invisible */
+/* scroll - The overflow is clipped, and a scrollbar is added */
+/* auto - Similar to scroll, but it adds scrollbars only when necessary */
+
+/*------------------------------------*/
+/* The clear Property */
+/* specifies what happens with the element that is next to a floating element. */
+/* The float element lose it's automatically filled width, and reduce it to as small as it can get. clear will make sure there are no floating elements on the side you tell. If there is one, it will move down until there is none in the given direction. clear: both will check this for both directions */
+
+/* none - default - element is not pushed below left or right floated elements. */
+/* left - The element is pushed below left floated elements */
+/* right - The element is pushed below right floated elements */
+/* both - The element is pushed below both left and right floated elements */
+/* inherit - The element inherits the clear value from its parent */
+
+/*------------------------------------*/
 /*dimenstions*/
 /*Absolute Measurement*/
 % = percentage
