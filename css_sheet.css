@@ -374,3 +374,14 @@ Example
   justify-content: center;
   align-items: center;
 }
+
+/* media query - consists of a media type and can contain one or more expressions */
+/* all	--> nUsed for all media type devices
+print	--> Used for printers
+screen --> Used for computer screens, tablets, smart-phones etc.
+speech -->	Used for screenreaders that "reads" the page out loud */
+@media screen and (min-width: 500px) {
+  body {
+    background-color: lightgreen;
+  } }
+
