@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>W3Schools CSS transform demonstration</title>
+
+    <style type="text/css">
+        #blueDIV {
+            background-color: aqua;
+            width: 100px;
+
+        }
+
+        .animated_demo {
+            background-color: #E7E9EB;
+            border-radius: 5px;
+            min-height: 400px;
+            width: 100%;
+            position: relative;
+            padding: 30px 30px 30px 30px;
+        }
+
+        .animated_property div {
+            width: 320px;
+            margin-left: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: Consolas, Menlo, "courier new", monospace;
+            font-size: 16px;
+            background: #fff;
+            opacity: 0.7;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .animated_property div:hover {
+            opacity: 1;
+        }
+
+        .animated_property div input {
+            position: absolute;
+            left: -30px;
+            cursor: pointer;
+        }
+
+        .animated_property div span {
+            color: red;
+        }
+
+        .animated_property div span:last-child {
+            color: blue;
+        }
+
+        .animated_property div.active_prop {
+            opacity: 1;
+        }
+
+        .animated_container {
+            position: absolute;
+            top: 30px;
+            bottom: 30px;
+            left: 400px;
+            right: 30px;
+            margin: auto;
+            background-color: #fff;
+        }
+
+        .animated_container_inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s;
+        }
+
+
+        @media (max-width:800px) {
+            .animated_container {
+                position: relative;
+                height: 350px;
+                xleft: 20px;
+                xmargin-right: 40px;
+                xmargin-bottom: 40px;
+            }
+        }
+
+        @media (max-width:800px) {
+            #select_properties {
+                font-size: 15px;
+                max-width: 170px;
+            }
+
+            .animated_demo {
+                padding: 16px;
+            }
+
+            .propval_radio_btn {
+                display: none;
+            }
+
+            .animated_property div {
+                margin-left: 0;
+                width: 100% !important;
+                word-break: break-word;
+            }
+
+            .animated_container {
+                top: 10px;
+                left: 0;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+
+    <script>
+        var temp = document.createElement("div");
+        temp.innerHTML = document.getElementById("tempcontainer").innerHTML;
+        document.getElementById("tempcontainer").innerHTML = "";
+        var cssselector = temp.getElementsByClassName("css-selector")[0].innerText;
+        var cssproperty = temp.getElementsByClassName("css-property")[0].innerText;
+        var propertywidth = 0, resultleft;
+        if (temp.getElementsByClassName("property-width")[0]) {
+            if (window.matchMedia("(max-width: 800px)").matches) {
+                //propertywidth = 400;
+                //resultleft = 20;
+            } else {
+                propertywidth = temp.getElementsByClassName("property-width")[0].innerText;
+                if (isNaN(propertywidth)) {
+                    propertywidth = 0;
+                } else {
+                    propertywidth = Number(propertywidth);
+                    resultleft = propertywidth + 80;
+                }
+            }
+        }
+        var legalvalues = temp.getElementsByClassName("legal-values")[0].innerText;
+        var cssvalues = legalvalues.split("|");
+        var x;
+        for (x in cssvalues) {
+            cssvalues[x] = cssvalues[x].trim();
+        }
+        var css = temp.getElementsByTagName("style")[0].innerText;
+        var htmlcontent = temp.getElementsByClassName("demo_content")[0].innerHTML.trim();
+
+        var json = {
+            "cssselector": cssselector,
+            "cssproperty": cssproperty,
+            "propertywidth": propertywidth,
+            "cssvalues": cssvalues,
+            "html": htmlcontent,
+            "css": css
+        }
+        var apArr = json.cssvalues;
+        var aproperty;
+        var showNextInterval;
+        function pelle() {
+            var dots = "", props = "", cc, dd, x, preval = "", prevalIndex = -1;
+            var cssselector = json.cssselector;
+            fill_select_properties();
+            aproperty = json.cssproperty;
+
+            cc = document.createElement("style");
+            cc.innerText = json.css;
+            document.getElementsByTagName("head")[0].appendChild(cc);
+
+            var propDiv = document.createElement("div");
+            propDiv.setAttribute("class", "animated_property");
+            document.getElementsByClassName("animated_demo")[0].appendChild(propDiv);
+
+            cc = document.createElement("div");
+            cc.setAttribute("class", "animated_container");
+            document.getElementsByClassName("animated_demo")[0].appendChild(cc);
+
+            //dd = document.createElement("div");
+            //cc.appendChild(dd);
+
+            cc = document.createElement("div");
+            cc.setAttribute("class", "animated_container_inner");
+            cc.innerHTML = json.html;
+
+            myhtml = cc;//.childNodes[0];
+            for (i = 0; i < apArr.length; i++) {
+                z = myhtml.cloneNode(true);
+
+                /*gammel kode:
+                z.querySelector(cssselector).style[aproperty] = apArr[i];
+                */
+
+                zz = z.querySelectorAll(cssselector);
+                for (j = 0; j < zz.length; j++) {
+                    zz[j].style[aproperty] = apArr[i];
+                }
+                z.style.opacity = "0";
+
+                document.getElementsByClassName("animated_container")[0].appendChild(z);
+                cc = "";
+                dd = "";
+                if (i == 0) {
+                    cc = " class='active_prop'";
+                    dd = " checked";
+                }
+                props += "<div onclick='showNext(" + i + ")'" + cc + "><input class='propval_radio_btn' type='radio'" + dd + "><span>" + aproperty + "</span>: <span>" + apArr[i] + "</span>;</div>";
+
+            }
+            document.getElementsByClassName("animated_container_inner")[0].style.opacity = 1;
+            propDiv.innerHTML = props;
+            if (json.propertywidth != 0) {
+                x = document.querySelectorAll(".animated_property div");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.width = json.propertywidth + "px";
+                }
+                document.getElementsByClassName("animated_container")[0].style.left = resultleft + "px";
+            }
+            if (preval != "") {
+                for (i = 0; i < apArr.length; i++) {
+                    if (apArr[i] == preval) prevalIndex = i;
+                }
+            }
+            if (prevalIndex == -1) {
+                showNextInterval = setInterval(showNext, 2000);
+            } else {
+                showNext(prevalIndex);
+            }
+        }
+
+        function showNext(activeno) {
+            var x, y, z, i, n;
+            x = document.getElementsByClassName("animated_container_inner");
+            y = document.getElementsByClassName("animated_property")[0].getElementsByTagName("div");
+            z = document.getElementsByClassName("animated_property")[0].getElementsByTagName("input");
+            if (activeno == "undefined") { activeno = -1; }
+            if (activeno > -1) {
+                clearInterval(showNextInterval);
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.opacity = 0;
+                    y[i].className = "";
+                    z[i].checked = false;
+                }
+                x[activeno].style.opacity = 1;
+                y[activeno].className = "active_prop";
+                z[activeno].checked = true;
+                return false;
+            }
+
+            for (i = 0; i < x.length; i++) {
+                if (x[i].style.opacity == 1) {
+                    y[i].className = "";
+                    z[i].checked = false;
+                    x[i].style.opacity = 0;
+                    if (x[i + 1]) {
+                        x[i + 1].style.opacity = 1;
+                        n = i + 1;
+                    } else {
+                        x[0].style.opacity = 1;
+                        n = 0;
+                    }
+                    y[n].className = "active_prop";
+                    z[n].checked = true;
+                    return false;
+                }
+            }
+
+            x[0].style.opacity = 1;
+            y[0].className = "active_prop";
+            z[0].checked = true;
+        }
+
+        function fill_select_properties() {
+            var i, l, a, b, c, s, next, prev, x = document.getElementById("select_properties");
+            c = "transform";
+            s = 1;
+            a = propertylist;
+            l = a.length;
+            for (i = 0; i < l; i++) {
+                b = document.createElement("option");
+                b.text = a[i];
+                if (a[i] == c) s = i;
+                x.add(b);
+            }
+            x.selectedIndex = s;
+            next = s + 1;
+            prev = s - 1;
+            if (prev < 0) {
+                document.getElementById("prevbtn").style.visibility = "hidden";
+            } else {
+                document.getElementById("prevbtn").href = "playdemo.asp?filename=playcss_" + a[prev];
+            }
+            if (next >= l) {
+                document.getElementById("nextbtn").style.visibility = "hidden";
+            } else {
+                document.getElementById("nextbtn").href = "playdemo.asp?filename=playcss_" + a[next];
+            }
+        }
+
+        function goto_new_css_property(a) {
+            var href = "playdemo.asp?filename=playcss_" + a.value;
+            document.location = href;
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <h1>CSS transform</h1>
+    <p>Demo of the different values of the transform property.</p>
+
+    <div class="animated_demo">
+
+        <div class="animated_property">
+            <div onclick="showNext(0)" class="active_prop" style="width: 420px;"><input class="propval_radio_btn"
+                    type="radio" checked=""><span>transform</span>: <span>none</span>;</div>
+            <div onclick="showNext(1)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotate(10deg)</span>;</div>
+            <div onclick="showNext(2)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotate(45deg)</span>;</div>
+            <div onclick="showNext(3)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotateX(45deg)</span>;</div>
+            <div onclick="showNext(4)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotateX(100deg)</span>;</div>
+            <div onclick="showNext(5)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotateY(45deg)</span>;</div>
+            <div onclick="showNext(6)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>rotateY(80deg)</span>;</div>
+            <div onclick="showNext(7)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skew(20deg,20deg)</span>;</div>
+            <div onclick="showNext(8)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skew(30deg,30deg)</span>;</div>
+            <div onclick="showNext(9)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skewX(30deg)</span>;</div>
+            <div onclick="showNext(10)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skewX(40deg)</span>;</div>
+            <div onclick="showNext(11)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skewY(30deg)</span>;</div>
+            <div onclick="showNext(12)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>skewY(40deg)</span>;</div>
+            <div onclick="showNext(13)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>translate(20px,10px)</span>;</div>
+            <div onclick="showNext(14)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>translate(20px,20px)</span>;</div>
+            <div onclick="showNext(15)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>scale(2,2)</span>;</div>
+            <div onclick="showNext(16)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>scale(2,3)</span>;</div>
+            <div onclick="showNext(17)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>matrix(0.866,0.7,-0.8,0.866,0,0)</span>;</div>
+            <div onclick="showNext(18)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>matrix(0.586,0.8,-0.8,0.586,0,0)</span>;</div>
+            <div onclick="showNext(19)" style="width: 420px;" class=""><input class="propval_radio_btn"
+                    type="radio"><span>transform</span>: <span>matrix(0.586,0.8,-0.8,0.586,40,30)</span>;</div>
+        </div>
+        <div class="animated_container" style="left: 500px;">
+            <div class="animated_container_inner" style="opacity: 1;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: none;">See what different transform values does with this blue
+                        DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotate(10deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotate(45deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotateX(45deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotateX(100deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotateY(45deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: rotateY(80deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skew(20deg, 20deg);">See what different transform values does
+                        with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skew(30deg, 30deg);">See what different transform values does
+                        with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skewX(30deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skewX(40deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skewY(30deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: skewY(40deg);">See what different transform values does with
+                        this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: translate(20px, 10px);">See what different transform values does
+                        with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: translate(20px, 20px);">See what different transform values does
+                        with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: scale(2, 2);">See what different transform values does with this
+                        blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: scale(2, 3);">See what different transform values does with this
+                        blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: matrix(0.866, 0.7, -0.8, 0.866, 0, 0);">See what different
+                        transform values does with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: matrix(0.586, 0.8, -0.8, 0.586, 0, 0);">See what different
+                        transform values does with this blue DIV element.</div>
+
+                </div>
+            </div>
+            <div class="animated_container_inner" style="opacity: 0;">
+                <div id="myDIV">
+
+                    <div id="blueDIV" style="transform: matrix(0.586, 0.8, -0.8, 0.586, 40, 30);">See what different
+                        transform values does with this blue DIV element.</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
